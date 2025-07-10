@@ -36,6 +36,7 @@
 \fancyhf{}
 \fancyhead[L]{Tutorial de Python}
 \fancyhead[R]{\thepage}
+\setlength{\headheight}{14.5pt}
 
 % Estilo dos títulos
 \titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
@@ -83,7 +84,7 @@
 	\section{Por que python?}
 	
 	Python é uma linguagem simples, poderosa e extremamente versátil. Ela pode ser usada em diversas áreas: ciência de dados, desenvolvimento de jogos, criação de sites, aplicativos, aprendizado de máquina, automações, administração de sistemas e muito mais. Se o foco do seu projeto não for performance extrema, como é o caso de linguagens como C, é bem provável que você consiga resolver com Python.
-	
+
 	Em outras palavras, se você está começando sua jornada no mundo da programação, Python é como um bote salva-vidas que pode te ajudar a atravessar qualquer mar de códigos! (risos) \newline
 	
 	\section{O que é programação?}
@@ -172,16 +173,16 @@ print("Ola Mundo!")\end{lstlisting}
 			\item \textbf{Processamento}: Realizar cálculos e transformar dados.
 			\item \textbf{Estruturas condicionais (if)}: Para tomar decisões com base em condições.
 			\item \textbf{Laços de repetição }(for, while, do-while): Para executar uma ação várias vezes.
-			\item \textbf{Funções}: Blocos de código reutilizáveis que realizam tarefas específicas.
+			\item \textbf{Funções}: Blocos de código reutilizáveis que podem ser chamados várias vezes.
 			\item \textbf{Classes}: Para organizar e estruturar programas maiores (usando conceitos de orientação a objetos).
 			\item \textbf{Tratamento de exceções}: Para lidar com erros de forma controlada.
 			\item \textbf{Leitura e escrita de arquivos}: Para salvar ou acessar informações armazenadas no computador.
 		\end{itemize}
-	
+		\vspace{8mm}
+		\textbf{Cuidado! não se preocupe em decorar tudo agora, com o tempo você pega o jeito.}
 	\end{tcolorbox}
 	
 	Essas peças são como os "ingredientes básicos" da programação. Com elas, você poderá criar desde simples scripts até sistemas complexos.
-	Utilizando o Python como uma Calculadora
 	
 	\section{Python como calculadora}
 	
@@ -342,7 +343,7 @@ idade_do_joao = 14
 idade_do_joao = idade_do_joao + 8
 print("joao tera", idade_do_joao, "anos, daqui a 8 anos")\end{lstlisting}
 	
-	Aqui, acontece que você está somando 8 a uma variável que já é um número inteiro, ou seja, não é necessário fazer nenhum tipo de conversão -- dentro do print, a variável "idade\_do\_joao" é exibida, repare que, como ela está entre vírgulas, ela é \textbf{concatenada} ("juntada") com espaços ao resto da string. 
+	Aqui, acontece que você está somando 8 a uma variável que já é um número inteiro, ou seja, não é necessário fazer nenhum tipo de conversão -- dentro do print, a variável "idade\_do\_joao" é exibida, que, como ela está entre vírgulas, ela é \textbf{concatenada} ("juntada") com espaços ao resto da string. 
 	
 	Suponha, no entanto, que eu queira receber do próprio usuário qual a idade dele, e, só então, calcular quantos anos ele terá daqui a 8 anos.
 	
