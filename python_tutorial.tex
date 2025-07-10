@@ -165,16 +165,19 @@ print("Ola Mundo!")\end{lstlisting}
 	Aqui estão as estruturas que formam a base de qualquer programa:
 	
 	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Componentes de um programa}]
-	\textbf{Variáveis}: Para armazenar informações.\newline
-	\textbf{Entrada de dados}: Para capturar dados do usuário ou de outras fontes.\newline
-	\textbf{Saída de dados}: Para exibir informações (como o nosso "Olá, Mundo!").\newline
-	\textbf{Processamento}: Realizar cálculos e transformar dados.\newline
-	\textbf{Estruturas condicionais (if)}: Para tomar decisões com base em condições.\newline
-	\textbf{Laços de repetição }(for, while, do-while): Para executar uma ação várias vezes.\newline
-	\textbf{Funções}: Blocos de código reutilizáveis que realizam tarefas específicas.\newline
-	\textbf{Classes}: Para organizar e estruturar programas maiores (usando conceitos de orientação a objetos).\newline
-	\textbf{Tratamento de exceções}: Para lidar com erros de forma controlada.\newline
-	\textbf{Leitura e escrita de arquivos}: Para salvar ou acessar informações armazenadas no computador.\newline
+		\begin{itemize}
+			\item \textbf{Variáveis}: Para armazenar informações.
+			\item \textbf{Entrada de dados}: Para capturar dados do usuário ou de outras fontes.
+			\item \textbf{Saída de dados}: Para exibir informações (como o nosso "Olá, Mundo!").
+			\item \textbf{Processamento}: Realizar cálculos e transformar dados.
+			\item \textbf{Estruturas condicionais (if)}: Para tomar decisões com base em condições.
+			\item \textbf{Laços de repetição }(for, while, do-while): Para executar uma ação várias vezes.
+			\item \textbf{Funções}: Blocos de código reutilizáveis que realizam tarefas específicas.
+			\item \textbf{Classes}: Para organizar e estruturar programas maiores (usando conceitos de orientação a objetos).
+			\item \textbf{Tratamento de exceções}: Para lidar com erros de forma controlada.
+			\item \textbf{Leitura e escrita de arquivos}: Para salvar ou acessar informações armazenadas no computador.
+		\end{itemize}
+	
 	\end{tcolorbox}
 	
 	Essas peças são como os "ingredientes básicos" da programação. Com elas, você poderá criar desde simples scripts até sistemas complexos.
@@ -283,14 +286,17 @@ print(type(rock_n_roll_eh_bom))
 	A resposta longa é: quantos você quiser.
 	
 	Vamos aos seis tipos principais, são eles:
-	\begin{enumerate}
-		\item \textbf{Booleano} -- aceita apenas True [Verdadeiro] ou False [Falso]
-		\item \textbf{Inteiro} -- número inteiro
-		\item \textbf{Float} -- ponto flutuante (vulgarmente conhecido como decimal)
-		\item \textbf{String} -- texto, ou "cadeia de caracteres"
-		\item \textbf{None} -- um tipo que representa "vazio" ou ausência de valor
-		\item \textbf{Complexo} -- um tipo específico pra trabalhar com números complexos, não exploraremos neste livro.
-	\end{enumerate}
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Lista de tipos principais}]
+		\begin{itemize}
+			\item \textbf{Booleano} -- aceita apenas True [Verdadeiro] ou False [Falso]
+			\item \textbf{Inteiro} -- número inteiro
+			\item \textbf{Float} -- ponto flutuante (vulgarmente conhecido como decimal)
+			\item \textbf{String} -- texto, ou "cadeia de caracteres"
+			\item \textbf{None} -- um tipo que representa "vazio" ou ausência de valor
+			\item \textbf{Complexo} -- um tipo específico pra trabalhar com números complexos, não exploraremos neste livro.
+		\end{itemize}		
+	\end{tcolorbox}
+	
 	
 	para tornar toda essa discussão sobre tipos mais "palpável", tente executar os códigos abaixo.
 	
@@ -319,9 +325,7 @@ print(type("aaaaaaaatum"))
 # Complexo
 # O 'j' significa a unidade imaginaria em python!
 print(type(13j)) #numeros complexos precisam ser `posfixados` com a letra j
-print(type(3 + 4j)) # outro numero complexo
-
-	\end{lstlisting}
+print(type(3 + 4j)) # outro numero complexo\end{lstlisting}
 	
 	Veja que, todos esses tipos aparecem como <class 'tipo'> \newline
 	
