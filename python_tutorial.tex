@@ -1,0 +1,347 @@
+\documentclass[12pt]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{etoolbox}
+\AtBeginEnvironment{lstlisting}{\setlength{\parindent}{0pt}}
+\usepackage{makeidx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{fontawesome5} % para ícone Creative Commons
+
+\renewcommand{\lstlistingname}{Código}
+
+% Geometria e espaçamento
+\geometry{
+	a4paper,
+	left=3.5cm,
+	right=3.5cm,
+	top=3cm,
+	bottom=3cm
+}
+
+% Cabeçalho bonito
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Tutorial de Python}
+\fancyhead[R]{\thepage}
+
+% Estilo dos títulos
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% Cores e estilo para código
+\definecolor{codebg}{rgb}{0.95,0.95,0.92}
+\definecolor{codegray}{rgb}{0.4,0.4,0.4}
+\definecolor{codeblue}{rgb}{0.0,0.0,0.6}
+\definecolor{codegreen}{rgb}{0.0,0.5,0.0}
+
+\lstdefinestyle{pythonstyle}{
+	backgroundcolor=\color{codebg},
+	commentstyle=\color{codegreen}\itshape,
+	keywordstyle=\color{codeblue}\bfseries,
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{red},
+	basicstyle=\ttfamily\small,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=10pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	frame=single,
+	language=Python
+}
+\lstset{style=pythonstyle}
+
+% Título
+\title{Exemplo com Listings: Estilo No Starch Press}
+\author{Eduardo Bulsoni}
+\date{}
+
+% Índice
+\makeindex
+
+\begin{document}
+	
+	\tableofcontents
+	\chapter{Primeiros passos com python!}
+	
+	\section{Por que python?}
+	
+	Python é uma linguagem simples, poderosa e extremamente versátil. Ela pode ser usada em diversas áreas: ciência de dados, desenvolvimento de jogos, criação de sites, aplicativos, aprendizado de máquina, automações, administração de sistemas e muito mais. Se o foco do seu projeto não for performance extrema, como é o caso de linguagens como C, é bem provável que você consiga resolver com Python.
+	
+	Em outras palavras, se você está começando sua jornada no mundo da programação, Python é como um bote salva-vidas que pode te ajudar a atravessar qualquer mar de códigos! (risos) \newline
+	
+	\section{O que é programação?}
+	
+	Programação é o ato de escrever instruções em forma de texto (código) que o computador deve seguir. Essas instruções precisam ser simples, passo a passo, e, o mais importante, sem ambiguidades!
+	
+	Você já ouviu aquela piada do programador? A esposa diz: "Amor, quero que você vá ao mercado e traga 2 ovos. Se tiver leite, traga 6." O homem vai até o mercado, encontra leite, mas volta com 6 ovos e nenhum leite. Pode parecer engraçado, mas eu te pergunto: a instrução estava clara?
+	
+	\subsection{Uma breve história da ciência da computação: como chegamos até aqui}
+	
+	Embora o autor deste livro não seja exatamente um entusiasta de histórias antigas, é impossível ignorar como a ciência da computação percorreu um longo caminho para chegar ao que temos hoje.
+	
+	Nos primórdios, programar um computador era uma tarefa bem diferente do que é atualmente. Os programas eram escritos em cartões perfurados, que precisavam ser inseridos em grandes máquinas para processamento. Cada pequeno erro, como trocar a ordem de um cartão, poderia comprometer todo o programa. Além disso, os computadores eram imensos, ocupando salas inteiras, e a ideia de ter um em casa era impensável.
+	
+	Com o tempo, evoluímos para os chamados terminais burros, dispositivos conectados a servidores centrais. Embora esses terminais permitissem aos usuários escrever comandos, o trabalho pesado era feito por computadores maiores e mais poderosos. Ainda assim, a experiência deixava a desejar: havia um atraso considerável entre o pressionar de uma tecla e a resposta do servidor.
+	
+	Hoje, a realidade é completamente diferente. Graças à evolução da computação, você pode escrever centenas ou milhares de linhas de código e obter resultados em segundos ou minutos. O que antes exigia salas inteiras e equipamentos especializados agora pode ser feito em um laptop ou até mesmo em um smartphone.
+	
+	E é impossível falar da história da computação sem mencionar Alan Turing: matemático brilhante, pioneiro da ciência da computação, e uma figura histórica cujas ideias revolucionaram o campo. Seu trabalho nos ajuda a entender como chegamos a um ponto em que programar se tornou acessível a todos. Obrigado, Turing!
+	
+	\section{Ferramentas e como instalá-las}
+	
+	Bom, a partir daqui eu assumo que você tenha acesso à algum computador (pode ser até um chromebook ou coisa que o valha), de todo modo, essas serão nossas principais ferramentas:
+	
+	\begin{itemize}
+		\item Visual Studio Code
+		\item Python
+		\item Pycharm
+	\end{itemize}
+
+	\subsection{Instalando o VSCode}
+	
+	A instalação do VSCode é bem simples. Ao baixar o arquivo, basta seguir os passos do instalador. Durante o processo, você verá algumas opções, como a de adicionar o VSCode ao contexto da pasta atual (uma opção muito útil, pois facilita a abertura de projetos diretamente do explorador de arquivos). Não é obrigatório, mas pode ser interessante para facilitar sua vida mais tarde.
+	
+	\subsection{Instalando o Python}
+	
+	Baixe o Python; quando for instalar, se você tiver permissões de administrador, você pode optar por instalar o Python para todos os usuários do computador.
+	
+	Importante: Não se esqueça de marcar a opção "Add Python to PATH" (Adicionar Python ao PATH) durante a instalação. Isso é essencial para que você possa rodar o Python diretamente do terminal (sem precisar navegar até a pasta onde o Python está instalado).
+	
+	\subsection{Instalando o PyCharm}
+	
+	Se você optar por usar o PyCharm, cuidado! Ao entrar no site da jetbrains para fazer o download, você verá duas opções: PyCharm Professional (pago) e PyCharm Community Edition (GRATUITO). Role a página até encontrar a versão Community Edition e baixe-a. Essa versão é perfeita para quem está começando.
+	
+	\section{Meu primeiro programa}
+	
+	Agora que já sabemos o que é programação, estamos prontos para escrever nossa primeira linha de código! Digite o seguinte comando no seu editor de texto:
+	
+	\begin{lstlisting}[caption={Olá mundo em python}] 
+print("Ola Mundo!")\end{lstlisting}
+	
+	
+	Salve o arquivo com o nome "ola\_mundo.py" (com a extensão .py, que é fundamental para que o Python reconheça o arquivo como um script Python). Agora, você pode rodar o seu código de duas maneiras:
+	
+	\begin{enumerate}
+		\item No editor de texto: Normalmente, você encontrará um botão de "play" ou "executar" para rodar o script diretamente no editor.
+		
+		\item No terminal: Se preferir usar o terminal, abra a pasta onde o arquivo está salvo e digite o seguinte comando: python ola\_mundo.py	
+	\end{enumerate}
+	
+	\textbf{Importante}: A extensão .py é essencial para que o arquivo seja identificado como um script Python. Além disso, a convenção do Python para nomes de arquivos é utilizar o snakecase — ou seja, todas as palavras em minúsculas, separadas por (sublinhados). Então, lembre-se: ao nomear seus arquivos, use essa convenção para manter o código organizado e legível.
+	
+	O que faz o nosso primeiro \textit{"Olá, Mundo"}?
+	
+	O comando que escrevemos, print("Olá, Mundo!"), tem uma função bem simples: ele imprime (mostra) a mensagem "Olá, Mundo!" na tela do terminal. É isso! Parece algo pequeno, mas é o primeiro passo para aprender a conversar com o computador.
+	
+	Apesar de ser uma linha de código tão simples, ela já nos ensina um dos fundamentos mais importantes da programação: a saída de dados — ou seja, como fazer o computador apresentar informações para nós.
+	
+	Mas e os programas mais complexos?
+	
+	Acredite: todos os programas, por mais avançados ou sofisticados que sejam, são compostos pelas mesmas estruturas básicas. Programar é como construir com blocos de montar: aprendemos a usar essas peças fundamentais, e, aos poucos, conseguimos criar coisas incríveis!
+	
+	\section{Estruturas que compõem um programa}
+	
+	Aqui estão as estruturas que formam a base de qualquer programa:
+	
+	\textbf{Variáveis}: Para armazenar informações.\newline
+	\textbf{Entrada de dados}: Para capturar dados do usuário ou de outras fontes.\newline
+	\textbf{Saída de dados}: Para exibir informações (como o nosso "Olá, Mundo!").\newline
+	\textbf{Processamento}: Realizar cálculos e transformar dados.\newline
+	\textbf{Estruturas condicionais (if)}: Para tomar decisões com base em condições.\newline
+	\textbf{Laços de repetição }(for, while, do-while): Para executar uma ação várias vezes.\newline
+	\textbf{Funções}: Blocos de código reutilizáveis que realizam tarefas específicas.\newline
+	\textbf{Classes}: Para organizar e estruturar programas maiores (usando conceitos de orientação a objetos).\newline
+	\textbf{Tratamento de exceções}: Para lidar com erros de forma controlada.\newline
+	\textbf{Leitura e escrita de arquivos}: Para salvar ou acessar informações armazenadas no computador.\newline
+	
+	Essas peças são como os "ingredientes básicos" da programação. Com elas, você poderá criar desde simples scripts até sistemas complexos.
+	Utilizando o Python como uma Calculadora
+	
+	\section{Python como calculadora}
+	
+	Antes de introduzirmos o conceito de variáveis, vamos explorar um dos usos mais simples e práticos do Python: como uma calculadora! Isso permite que você execute operações matemáticas diretamente e veja os resultados na hora.
+	\subsection{Passo 1: Abrindo o Python no Modo Interativo}
+	
+	No Windows, pressione a tecla Windows e digite "python" na barra de busca. Abra o programa Python 3.X (a versão que você instalou). Isso abrirá o modo interativo, onde você pode digitar comandos e ver os resultados instantaneamente.
+	\subsection{Passo 2: Testando Operações Matemáticas}
+	
+	Digite os comandos abaixo e observe os resultados. Esses exemplos mostram diferentes operações que você pode fazer no Python:
+	\begin{lstlisting}[caption={Python como calculadora.}]
+3 + 3              # soma
+4 * 3              # multiplicacaoo
+12 / 4             # divisao (resultado com casas decimais)
+12 // 4            # divisao inteira
+3 ** 2             # potencia (3 elevado a 2)
+26 - 5             # subtracao
+3 * 4 - 2 + 13 / 3 # combinacao de operacoes: nesse caso a ordem segue o acronimo PEMDAS (mais sobre isso a seguir.)
+3 * (4 - 2)        # uso de parenteses para alterar a ordem das operacoes.\end{lstlisting}
+	
+	\subsection{O que aprendemos com isso?}
+	
+	O Python segue a ordem de precedência matemática, como em uma calculadora comum. Multiplicações e divisões são realizadas antes de somas e subtrações, a menos que você use parênteses para forçar uma ordem diferente.\newline
+	Você pode experimentar diferentes números e combinações de operações para entender como o Python processa cada comando.
+	
+	\textit{Dica:} Se você vir algo como \texttt{>{>}>} no terminal, é o Python esperando pelo próximo comando. Aproveite e teste à vontade!
+	
+	\section{Variáveis}
+	
+	O que são? Onde vivem? Para que servem? Tudo isso será respondido.
+	
+	\hspace*{12mm}\textit{"Tudo será revelado"} –- Mortred, Warcraft 3\newline
+	
+	O que são variáveis?
+	
+	Você pode pensar em uma variável como um recipiente — como um balde, pote ou caixa — que serve para armazenar algo. Cada variável possui:
+	
+	\begin{itemize}
+	\item Um \textbf{tipo}: Define o que a variável pode armazenar (números, texto, valores booleanos, etc.).
+	\item Um \textbf{nome}: A identificação da variável, que você escolhe.
+	\item Um \textbf{valor}: O conteúdo que ela armazena.
+	\end{itemize}
+	Por exemplo: 
+	\begin{lstlisting}[caption={código simples}]
+num = 3\end{lstlisting}
+	
+	Aqui:
+	
+	\begin{itemize}
+		\item O \textbf{tipo} é um inteiro (número sem casas decimais).
+		\item O \textbf{nome} da variável é num.
+		\item O \textbf{valor} armazenado é 3.
+	\end{itemize}
+	
+	
+	Isso permite realizar operações e até alterar o valor armazenado na variável. Por exemplo, poderíamos somar algo a num ou redefinir seu valor.
+	
+	Onde \textit{"vivem"} as variáveis?
+	
+	As variáveis "vivem" na memória do computador, mas não no HD ou SSD! Esses são exemplos de memórias secundárias, usadas para armazenamento permanente. As variáveis de programas em execução vivem na memória RAM (Random Access Memory ou Memória de Acesso Aleatório) -- Essa é a memória volátil usada enquanto o programa está rodando.
+	
+	\subsection{Nomes de variáveis: o poder está em suas mãos!}
+	
+	Uma das coisas legais sobre variáveis é que você pode dar o nome que quiser a elas, desde que siga algumas regras básicas do Python, basicamente: começar com uma letra ou sublinhado, sem espaços.
+	
+	Por exemplo:
+	
+	\begin{lstlisting}[caption={exemplo de variável}] 
+rock_n_roll_eh_bom = True
+print(type(rock_n_roll_eh_bom))
+# devera mostrar <class 'bool'>
+# ou seja, um tipo booleano, mais sobre classes adiante!
+\end{lstlisting}
+	
+	
+	Aqui, criamos uma variável com um nome bem expressivo!
+	
+	\begin{itemize}
+		\item O \textbf{nome} da variável é rock\_n\_roll\_eh\_bom
+		\item O \textbf{tipo} é booleano (True ou False).
+		\item O \textbf{valor} é True (sim, rock'n'roll é bom!).
+	\end{itemize}
+	
+	Isso mostra como nomes de variáveis podem tornar seu código mais legível e divertido!
+	
+	De fato, você pode até verificar o tipo da variável usando a função type\(\) como demonstrado no código acima! não apenas veja o código, tente executá-lo na sua máquina também!
+	
+	Resumo:
+	
+	Variáveis são recipientes que armazenam valores.
+	Elas têm um tipo, nome e valor. Vivem na memória RAM enquanto o programa está rodando.
+	Você pode escolher nomes significativos para elas, tornando seu código mais claro e até criativo.
+	
+	\textbf{Observação:} Embora tecnicamente seja possível usar acentos ou caracteres especiais em nomes de variáveis, não é recomendado! Isso pode causar problemas, especialmente ao trabalhar com bibliotecas externas ou ambientes que não reconhecem esses caracteres corretamente. O autor deste livreto recomenda fortemente que você aprenda inglês e não cometa heresias ao nomear suas variáveis! Este livro é apenas o começo de uma boa jornada!
+	
+	\subsection{Quais tipos existem no python?}
+	
+	A resposta curta é que existem seis tipos, por padrão na linguagem.\newline
+	A resposta longa é: quantos você quiser.
+	Vamos aos seis tipos principais, são eles:
+	\begin{enumerate}
+		\item \textbf{Booleano} -- aceita apenas True [Verdadeiro] ou False [Falso]
+		\item \textbf{Inteiro} -- número inteiro
+		\item \textbf{Float} -- ponto flutuante (vulgarmente conhecido como decimal)
+		\item \textbf{String} -- texto, ou "cadeia de caracteres"
+		\item \textbf{None} -- um tipo que representa "vazio" ou ausência de valor
+		\item \textbf{Complexo} -- um tipo específico pra trabalhar com números complexos, não exploraremos neste livro.
+	\end{enumerate}
+	
+	para tornar toda essa discussão sobre tipos mais "palpável", tente executar os códigos abaixo.
+	
+	\begin{lstlisting}
+# Inteiros
+print(type(200))
+print(type(0))
+print(type(-4400))
+
+# Booleanos
+print(type(True))
+print(type(False))
+
+# Ponto flutuante
+print(type(3.1415))
+print(type(206.24))
+print(type(-30005.08))
+
+# None
+print(type(None))
+
+# String
+print(type("testando, ola mundo"))
+print(type("aaaaaaaatum"))
+
+# Complexo
+print(type(13j)) #numeros complexos precisam ser `posfixados` com a letra j
+	\end{lstlisting}
+	
+	Veja que, todos esses tipos aparecem como <class 'tipo'> \newline
+	Pois não seria interessante se eu conseguisse criar o meu próprio tipo? o que diabos é uma "Classe" afinal? \newline
+	
+	Veremos mais sobre isso adiante, mas já adianto que sim, uma classe é o meio pelo qual você cria o tipo que você quiser! nesse meio tempo, focaremos os nossos esforços em aprender programação imperativa: um comando após o outro, de maneira a "ordenar" a máquina instrução por instrução!
+	
+	\newpage
+	\section*{Licença \faCreativeCommons}
+	
+	Este material é licenciado sob a licença \textbf{Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)}.
+	
+	\vspace{1em}
+	
+	Você tem permissão para:
+	
+	\begin{itemize}
+		\item \textbf{Copiar, distribuir e adaptar} este conteúdo;
+		\item Desde que \textbf{dê os devidos créditos} ao autor original;
+		\item \textbf{Não o utilize para fins comerciais};
+		\item E \textbf{mantenha a mesma licença} em qualquer obra derivada.
+	\end{itemize}
+	
+	\vspace{1em}
+	
+	Para mais informações, visite:  
+	\href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{https://creativecommons.org/licenses/by-nc-sa/4.0/}
+	
+	\vfill
+	
+	\begin{center}
+		\faCreativeCommons\quad
+		\faCreativeCommonsBy\quad
+		\faCreativeCommonsNc\quad
+		\faCreativeCommonsSa
+	\end{center}
+	
+\end{document}

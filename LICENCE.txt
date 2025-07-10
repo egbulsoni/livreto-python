@@ -1,0 +1,26 @@
+---
+
+### 🧾 `LICENSE.txt` (CC BY-NC-SA 4.0)
+
+```text
+Licença Creative Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 Internacional (CC BY-NC-SA 4.0)
+
+Você tem liberdade para:
+- Compartilhar — copiar e redistribuir o material em qualquer suporte ou formato.
+- Adaptar — remixar, transformar, e criar a partir do material.
+
+Sob os seguintes termos:
+- Atribuição — Você deve dar o crédito apropriado, prover um link para a licença e indicar se mudanças foram feitas. Você pode fazê-lo de maneira razoável, mas de forma alguma que sugira que o licenciante apoia você ou o seu uso.
+- NãoComercial — Você não pode usar o material para fins comerciais.
+- CompartilhaIgual — Se você remixar, transformar, ou criar a partir do material, deve distribuir suas contribuições sob a mesma licença que o original.
+
+Sem restrições adicionais — Você não pode aplicar termos jurídicos ou medidas de caráter tecnológico que restrinjam legalmente outros de fazer algo que a licença permita.
+
+---
+
+Para mais informações, consulte o texto completo da licença em:  
+https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.pt
+
+Este trabalho é:  
+**Python para todos: um guia acessível**  
+Copyright (c) 2025 Eduardo Bulsoni
