@@ -18,6 +18,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{graphicx}
 \usepackage{fontawesome5} % para ícone Creative Commons
+\usepackage{tcolorbox}
 
 \renewcommand{\lstlistingname}{Código}
 
@@ -121,8 +122,9 @@
 	
 	Baixe o Python; quando for instalar, se você tiver permissões de administrador, você pode optar por instalar o Python para todos os usuários do computador.
 	
-	Importante: Não se esqueça de marcar a opção "Add Python to PATH" (Adicionar Python ao PATH) durante a instalação. Isso é essencial para que você possa rodar o Python diretamente do terminal (sem precisar navegar até a pasta onde o Python está instalado).
-	
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Importante}]
+	Não se esqueça de marcar a opção "Add Python to PATH" (Adicionar Python ao PATH) durante a instalação. Isso é essencial para que você possa rodar o Python diretamente do terminal (sem precisar navegar até a pasta onde o Python está instalado).
+	\end{tcolorbox}
 	\subsection{Instalando o PyCharm}
 	
 	Se você optar por usar o PyCharm, cuidado! Ao entrar no site da jetbrains para fazer o download, você verá duas opções: PyCharm Professional (pago) e PyCharm Community Edition (GRATUITO). Role a página até encontrar a versão Community Edition e baixe-a. Essa versão é perfeita para quem está começando.
@@ -143,11 +145,14 @@ print("Ola Mundo!")\end{lstlisting}
 		\item No terminal: Se preferir usar o terminal, abra a pasta onde o arquivo está salvo e digite o seguinte comando: python ola\_mundo.py	
 	\end{enumerate}
 	
-	\textbf{Importante}: A extensão .py é essencial para que o arquivo seja identificado como um script Python. Além disso, a convenção do Python para nomes de arquivos é utilizar o snakecase — ou seja, todas as palavras em minúsculas, separadas por (sublinhados). Então, lembre-se: ao nomear seus arquivos, use essa convenção para manter o código organizado e legível.
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Importante}]
+	A extensão .py é essencial para que o arquivo seja identificado como um script Python. \newline Além disso, a convenção do Python para nomes de arquivos é utilizar o snakecase — ou seja, todas as palavras em minúsculas, separadas por underscores (sublinhados). \newline
+	Então, lembre-se: ao nomear seus arquivos, use essa convenção para manter o código organizado e legível.
+	\end{tcolorbox}
 	
 	O que faz o nosso primeiro \textit{"Olá, Mundo"}?
 	
-	O comando que escrevemos, print("Olá, Mundo!"), tem uma função bem simples: ele imprime (mostra) a mensagem "Olá, Mundo!" na tela do terminal. É isso! Parece algo pequeno, mas é o primeiro passo para aprender a conversar com o computador.
+	O comando que escrevemos, \texttt{print("Olá, Mundo!")}, tem uma função bem simples: ele imprime (mostra) a mensagem "Olá, Mundo!" na tela do terminal. É isso! Parece algo pequeno, mas é o primeiro passo para aprender a conversar com o computador.
 	
 	Apesar de ser uma linha de código tão simples, ela já nos ensina um dos fundamentos mais importantes da programação: a saída de dados — ou seja, como fazer o computador apresentar informações para nós.
 	
@@ -159,6 +164,7 @@ print("Ola Mundo!")\end{lstlisting}
 	
 	Aqui estão as estruturas que formam a base de qualquer programa:
 	
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Componentes de um programa}]
 	\textbf{Variáveis}: Para armazenar informações.\newline
 	\textbf{Entrada de dados}: Para capturar dados do usuário ou de outras fontes.\newline
 	\textbf{Saída de dados}: Para exibir informações (como o nosso "Olá, Mundo!").\newline
@@ -169,6 +175,7 @@ print("Ola Mundo!")\end{lstlisting}
 	\textbf{Classes}: Para organizar e estruturar programas maiores (usando conceitos de orientação a objetos).\newline
 	\textbf{Tratamento de exceções}: Para lidar com erros de forma controlada.\newline
 	\textbf{Leitura e escrita de arquivos}: Para salvar ou acessar informações armazenadas no computador.\newline
+	\end{tcolorbox}
 	
 	Essas peças são como os "ingredientes básicos" da programação. Com elas, você poderá criar desde simples scripts até sistemas complexos.
 	Utilizando o Python como uma Calculadora
@@ -265,12 +272,16 @@ print(type(rock_n_roll_eh_bom))
 	Elas têm um tipo, nome e valor. Vivem na memória RAM enquanto o programa está rodando.
 	Você pode escolher nomes significativos para elas, tornando seu código mais claro e até criativo.
 	
-	\textbf{Observação:} Embora tecnicamente seja possível usar acentos ou caracteres especiais em nomes de variáveis, não é recomendado! Isso pode causar problemas, especialmente ao trabalhar com bibliotecas externas ou ambientes que não reconhecem esses caracteres corretamente. O autor deste livreto recomenda fortemente que você aprenda inglês e não cometa heresias ao nomear suas variáveis! Este livro é apenas o começo de uma boa jornada!
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Observação}]
+		Embora tecnicamente seja possível usar acentos ou caracteres especiais em nomes de variáveis, não é recomendado! Isso pode causar problemas, especialmente ao trabalhar com bibliotecas externas ou ambientes que não reconhecem esses caracteres corretamente. O autor deste livreto recomenda fortemente que você aprenda inglês e não cometa heresias ao nomear suas variáveis! Este livro é apenas o começo de uma boa jornada!
+	\end{tcolorbox}
 	
 	\subsection{Quais tipos existem no python?}
 	
-	A resposta curta é que existem seis tipos, por padrão na linguagem.\newline
+	A resposta curta é que existem seis tipos, por padrão na linguagem.
+	
 	A resposta longa é: quantos você quiser.
+	
 	Vamos aos seis tipos principais, são eles:
 	\begin{enumerate}
 		\item \textbf{Booleano} -- aceita apenas True [Verdadeiro] ou False [Falso]
@@ -283,7 +294,7 @@ print(type(rock_n_roll_eh_bom))
 	
 	para tornar toda essa discussão sobre tipos mais "palpável", tente executar os códigos abaixo.
 	
-	\begin{lstlisting}
+	\begin{lstlisting}[caption={Verificando os tipos de variáveis em python}] 
 # Inteiros
 print(type(200))
 print(type(0))
@@ -306,14 +317,50 @@ print(type("testando, ola mundo"))
 print(type("aaaaaaaatum"))
 
 # Complexo
+# O 'j' significa a unidade imaginaria em python!
 print(type(13j)) #numeros complexos precisam ser `posfixados` com a letra j
+print(type(3 + 4j)) # outro numero complexo
+
 	\end{lstlisting}
 	
 	Veja que, todos esses tipos aparecem como <class 'tipo'> \newline
-	Pois não seria interessante se eu conseguisse criar o meu próprio tipo? o que diabos é uma "Classe" afinal? \newline
 	
-	Veremos mais sobre isso adiante, mas já adianto que sim, uma classe é o meio pelo qual você cria o tipo que você quiser! nesse meio tempo, focaremos os nossos esforços em aprender programação imperativa: um comando após o outro, de maneira a "ordenar" a máquina instrução por instrução!
+	Pois não seria interessante se você pudesse criar seu próprio tipo? O que é uma "classe", afinal? \newline
+	Calma, vamos explorar isso em capítulos futuros! Por enquanto, focaremos na programação imperativa: um comando após o outro, instruindo a máquina passo a passo.
 	
+	\subsection{E eu com os tipos?}
+	
+	O que eu quero demonstrar aqui, é que uma boa parte do seu trabalho como programador será receber dados, transformá-los e apresentar ao usuário algo de relevante com eles, considere o seguinte trecho de código:
+	
+	\begin{lstlisting}[caption={uma conta simples}] 
+idade_do_joao = 14
+# quantos anos joao tera daqui a 8 anos?
+idade_do_joao = idade_do_joao + 8
+print("joao tera", idade_do_joao, "anos, daqui a 8 anos")\end{lstlisting}
+	
+	Aqui, acontece que você está somando 8 a uma variável que já é um número inteiro, ou seja, não é necessário fazer nenhum tipo de conversão -- dentro do print, a variável "idade\_do\_joao" é exibida, repare que, como ela está entre vírgulas, ela é \textbf{concatenada} ("juntada") com espaços ao resto da string. 
+	
+	Suponha, no entanto, que eu queira receber do próprio usuário qual a idade dele, e, só então, calcular quantos anos ele terá daqui a 8 anos.
+	
+	\begin{lstlisting}[caption={Calculando a idade futura do usuário}]
+idade_do_usuario = int(input("Quantos anos voce tem hoje?"))
+print("daqui a 8 anos, voce tera", idade_do_usuario + 8)\end{lstlisting}
+	
+	Salve o código acima como "idade\_futura\_do\_usuario.py" e execute ele, se tudo correr bem, o programa deve pedir a idade do usuario, você vai digitar um número qualquer, do tipo 25, e ele vai mostrar quantos anos você terá daqui 8 anos, que no caso seria 33.
+	
+	Nesse código, introduzimos 2 coisas diferentes: estamos fazendo uma conversão de tipos, um \textit{type casting} no valor que de entrada que o usuário informou através da função input e, subsequentemente atribuindo esse valor, agora convertido pra inteiro, pra variável idade\_do\_usuario.
+	
+	Basicamente, ao executar esse código o programa vai perguntar a idade com a seguinte mensagem: "Quantos anos você tem hoje?", depois disso, ele vai converter essa entrada de dados para um inteiro, portanto, nesse primeiro momento, o usuário não pode digitar algo como "eu tenho 15", pois o programa espera somente um número -- em outras palavras, quaisquer coisas digitadas naquele momento que não sejam números, ocasionarão em uma exceção, um erro de valor (mais sobre exceções adiante!)
+	
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Observação}]
+		Isso que fizemos no Código 1.7 é denominado \textbf{composição de funções}.
+		
+		Repare: uma função lê a entrada do teclado, a outra converte para inteiro, as duas juntas permitem o calculo e a apresentação para o usuário. \newline
+		
+		Isso é extremamente comum no mundo da programação, você não precisa ser nenhum gênio da matemática pra compor suas funções.
+	\end{tcolorbox}
+	
+	% =======================LICENÇA=======================
 	\newpage
 	\section*{Licença \faCreativeCommons}
 	
