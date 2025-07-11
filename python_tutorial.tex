@@ -147,7 +147,7 @@ print("Ola Mundo!")\end{lstlisting}
 	\end{enumerate}
 	
 	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Importante}]
-	A extensão .py é essencial para que o arquivo seja identificado como um script Python. \newline Além disso, a convenção do Python para nomes de arquivos é utilizar o snakecase — ou seja, todas as palavras em minúsculas, separadas por underscores (sublinhados). \newline
+	A extensão .py é essencial para que o arquivo seja identificado como um script Python. \newline Além disso, a convenção do Python para nomes de arquivos é utilizar o snakecase --- ou seja, todas as palavras em minúsculas, separadas por underscores (sublinhados). \newline
 	Então, lembre-se: ao nomear seus arquivos, use essa convenção para manter o código organizado e legível.
 	\end{tcolorbox}
 	
@@ -203,6 +203,11 @@ print("Ola Mundo!")\end{lstlisting}
 3 * 4 - 2 + 13 / 3 # combinacao de operacoes: nesse caso a ordem segue o acronimo PEMDAS (mais sobre isso a seguir.)
 3 * (4 - 2)        # uso de parenteses para alterar a ordem das operacoes.\end{lstlisting}
 	
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Observação}]
+		sempre que você encontrar um \texttt{\#} em um código python, saiba que trata-se de um comentário: um trecho de código que não vai ser executado e é completamente ignorado pelo \textit{interpretador python} --- que é, a grosso modo, o "motor" responsável por executar o código.
+		
+		Pondo de forma simples, o comentário serve pra ajudar o(s) programador(es) apenas, a máquina não se importa com ele!
+	\end{tcolorbox}
 	\subsection{O que aprendemos com isso?}
 	
 	O Python segue a ordem de precedência matemática, como em uma calculadora comum. Multiplicações e divisões são realizadas antes de somas e subtrações, a menos que você use parênteses para forçar uma ordem diferente.\newline
@@ -242,7 +247,7 @@ num = 3\end{lstlisting}
 	
 	Onde \textit{"vivem"} as variáveis?
 	
-	As variáveis "vivem" na memória do computador, mas não no HD ou SSD! Esses são exemplos de memórias secundárias, usadas para armazenamento permanente. As variáveis de programas em execução vivem na memória RAM (Random Access Memory ou Memória de Acesso Aleatório) -- Essa é a memória volátil usada enquanto o programa está rodando.
+	As variáveis "vivem" na memória do computador, mas não no HD ou SSD! Esses são exemplos de memórias secundárias, usadas para armazenamento permanente. As variáveis de programas em execução vivem na memória RAM (Random Access Memory ou Memória de Acesso Aleatório) --- Essa é a memória volátil usada enquanto o programa está rodando.
 	
 	\subsection{Nomes de variáveis: o poder está em suas mãos!}
 	
@@ -289,12 +294,12 @@ print(type(rock_n_roll_eh_bom))
 	Vamos aos seis tipos principais, são eles:
 	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Lista de tipos principais}]
 		\begin{itemize}
-			\item \textbf{Booleano} -- aceita apenas True [Verdadeiro] ou False [Falso]
-			\item \textbf{Inteiro} -- número inteiro
-			\item \textbf{Float} -- ponto flutuante (vulgarmente conhecido como decimal)
-			\item \textbf{String} -- texto, ou "cadeia de caracteres"
-			\item \textbf{None} -- um tipo que representa "vazio" ou ausência de valor
-			\item \textbf{Complexo} -- um tipo específico pra trabalhar com números complexos, não exploraremos neste livro.
+			\item \textbf{Booleano} --- aceita apenas True [Verdadeiro] ou False [Falso]
+			\item \textbf{Inteiro} --- número inteiro
+			\item \textbf{Float} --- ponto flutuante (vulgarmente conhecido como decimal)
+			\item \textbf{String} --- texto, ou "cadeia de caracteres"
+			\item \textbf{None} --- um tipo que representa "vazio" ou ausência de valor
+			\item \textbf{Complexo} --- um tipo específico pra trabalhar com números complexos, não exploraremos neste livro.
 		\end{itemize}		
 	\end{tcolorbox}
 	
@@ -343,7 +348,7 @@ idade_do_joao = 14
 idade_do_joao = idade_do_joao + 8
 print("joao tera", idade_do_joao, "anos, daqui a 8 anos")\end{lstlisting}
 	
-	Aqui, acontece que você está somando 8 a uma variável que já é um número inteiro, ou seja, não é necessário fazer nenhum tipo de conversão -- dentro do print, a variável "idade\_do\_joao" é exibida, que, como ela está entre vírgulas, ela é \textbf{concatenada} ("juntada") com espaços ao resto da string. 
+	Aqui, acontece que você está somando 8 a uma variável que já é um número inteiro, ou seja, não é necessário fazer nenhum tipo de conversão --- dentro do print, a variável \texttt{idade\_do\_joao} é exibida \textbf{concatenada} (junta) as strings, de forma a compor uma string homogênia: \texttt{"Joao tera 22 anos, daqui a 8 anos"}
 	
 	Suponha, no entanto, que eu queira receber do próprio usuário qual a idade dele, e, só então, calcular quantos anos ele terá daqui a 8 anos.
 	
@@ -351,11 +356,11 @@ print("joao tera", idade_do_joao, "anos, daqui a 8 anos")\end{lstlisting}
 idade_do_usuario = int(input("Quantos anos voce tem hoje?"))
 print("daqui a 8 anos, voce tera", idade_do_usuario + 8)\end{lstlisting}
 	
-	Salve o código acima como "idade\_futura\_do\_usuario.py" e execute ele, se tudo correr bem, o programa deve pedir a idade do usuario, você vai digitar um número qualquer, do tipo 25, e ele vai mostrar quantos anos você terá daqui 8 anos, que no caso seria 33.
+	Salve o código acima como "idade\_futura\_do\_usuario.py" e execute ele, se tudo correr bem, o programa deve pedir a idade do usuario, você vai digitar um número qualquer, do tipo "25" (sem aspas), e ele vai mostrar quantos anos você terá daqui 8 anos, que no caso seria 33.
 	
-	Nesse código, introduzimos 2 coisas diferentes: estamos fazendo uma conversão de tipos, um \textit{type casting} no valor que de entrada que o usuário informou através da função input e, subsequentemente atribuindo esse valor, agora convertido pra inteiro, pra variável idade\_do\_usuario.
+	Nesse código, introduzimos 2 coisas diferentes: estamos fazendo uma conversão de tipos, um \textit{type casting}, no valor que de entrada que o usuário informou através da função input e, subsequentemente atribuindo esse valor, agora convertido pra inteiro, pra variável idade\_do\_usuario.
 	
-	Basicamente, ao executar esse código o programa vai perguntar a idade com a seguinte mensagem: "Quantos anos você tem hoje?", depois disso, ele vai converter essa entrada de dados para um inteiro, portanto, nesse primeiro momento, o usuário não pode digitar algo como "eu tenho 15", pois o programa espera somente um número -- em outras palavras, quaisquer coisas digitadas naquele momento que não sejam números, ocasionarão em uma exceção, um erro de valor (mais sobre exceções adiante!)
+	Basicamente, ao executar esse código o programa vai perguntar a idade com a seguinte mensagem: "Quantos anos você tem hoje?", depois disso, ele vai converter essa entrada de dados para um inteiro, portanto, nesse primeiro momento, o usuário não pode digitar algo como "eu tenho 15", pois o programa espera somente um número --- em outras palavras, quaisquer coisas digitadas naquele momento que não seja \textbf{um} número, ocasionarão em uma exceção, um erro de valor (mais sobre exceções adiante!)
 	
 	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Observação}]
 		Isso que fizemos no Código 1.7 é denominado \textbf{composição de funções}.
@@ -365,6 +370,101 @@ print("daqui a 8 anos, voce tera", idade_do_usuario + 8)\end{lstlisting}
 		Isso é extremamente comum no mundo da programação, você não precisa ser nenhum gênio da matemática pra compor suas funções.
 	\end{tcolorbox}
 	
+	\chapter{Entrada e saída de dados}
+	
+	\section{Experimente coisas, quebre códigos!}
+	Todos nós gostamos quando o código funciona, quando os nossos problemas são finalmente resolvidos e, enfim podemos descansar a cabeça. Isso é bom, mas não é tudo! Uma boa parte do seu trabalho enquanto programador vai ser garantir que o código seja seguro e corrigir os problemas, bugs ou vulnerabilidades do seu programinha, script ou sistema.
+	
+	Isto posto, é melhor que você quebre logo, tantas vezes quanto forem necessárias, o seu código - é melhor falhar desde já, enquanto você pode, pois isso te ajuda a ganhar confiança com a ferramenta.
+	
+	Teste: e se você esquecer de fechar um parênteses no print? e se você esquecer as aspas numa string? e se você mover parte do código de lugar, ou mesmo mandar printar uma variável que ainda não foi definida? que erro ele deu? como arruma? FALHE MUITO! Jogue os erros no Google, tente entender o porquê das coisas acontecerem da maneira que elas acontecem, adquira experiência, pois é isso que o mercado valoriza, e ninguém pode fazer por você!
+	
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Curiosidade}]
+		Existem hackers que vivem de descobrir brechas (vulnerabilidades) em sistemas e reportá-las — sim, isso dá dinheiro e é bem valorizado no mercado lá fora.
+		
+		Esses profissionais agem com ética e responsabilidade, e é importante lembrar que o conhecimento em programação deve ser usado para o bem! \newline
+		
+		Um exemplo é o hacker e YouTuber Gabriel Pato — fica como sugestão dar uma olhada no conteúdo dele. O cara é monstro!
+	\end{tcolorbox}
+	
+	\newpage
+	\section{As várias formas de printar}
+	
+	Existem diversas formas de imprimir na tela e \textit{interpolar} variáveis. Vejamos algumas a seguir:
+	
+	\begin{lstlisting}[caption={Os vários jeitos de printar em Python}]
+print("Ola, mundo")  # sem variaveis
+meu_numero = 10
+print("O valor da variavel eh %i" % meu_numero)
+print("O valor da variavel eh {}".format(meu_numero))
+print("O valor da variavel eh", meu_numero)
+print("O valor da variavel eh " + str(meu_numero))
+print(f"O valor da variavel eh {meu_numero}")\end{lstlisting}
+	
+	Note como não é possível concatenar strings com o operador `+` sem fazer a conversão de tipos! Perceba também que, ao concatenar utilizando vírgulas, você não precisa converter os tipos — e, de quebra, o Python ainda adiciona espaços automaticamente entre os itens!
+	
+	Mas qual delas eu deveria usar? — você se pergunta.
+	
+	A resposta que eu vou lhe dar é: use a maneira com que você se sentir mais confortável. Eu, particularmente, sempre opto por usar uma f-string (repararam como deixei o melhor por último?). Aliás, essa é a forma mais popular de \textit{interpolar} variáveis no Python 3.
+	
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Observação}]
+		Interpolar significa dizer para o código: "quando você for imprimir, substitua a variável que eu sinalizei pelo valor que ela carrega, beleza?"
+	\end{tcolorbox}
+	
+	\subsection{Sequências de escape}
+	
+	Eu poderia parar por aqui a nossa discussão sobre a função \texttt{print}, e já estaria de bom tamanho — mas ela não estaria completa se não abordássemos os dois tópicos que dão nome a esta (sub)seção.
+	
+	Para melhor ilustrar o que é uma sequência de escape, suponha que eu queira imprimir na tela uma tabulação ou uma nova linha — eu certamente poderia escrever "espaços" no meu código, ou pular linhas com a tecla Enter. O problema disso é que prejudica a legibilidade do código: e se eu quiser pular 3 linhas? E se eu quiser pular 15 linhas? E se eu colocar espaços a mais por acidente? Não é bom confiarmos no "olhômetro" quando se trata de sistemas precisos — especialmente no Python, que, como veremos adiante, é uma linguagem que depende fortemente de indentação e espaçamento!
+	
+	É aqui que entram as sequências de escape (ou *escape sequences*, em inglês). Imagine que eu tenha um código específico para tabulação, outro para quebra de linha, e mais alguns outros para casos especiais — assim, eu economizo espaço e melhoro a legibilidade do meu código, enquanto mantenho a precisão no espaçamento: uma tabulação sempre vai equivaler a 4 espaços, pois isso está cravado no código.
+	
+	\begin{lstlisting}[caption={Sequências de escape}]
+print("Veja so que bonito o meu codigo.\n")
+print("E a quebra de linha que o acompanha!")
+print("\tSe eu quiser imprimir uma tabulacao\n\tBasta acrescentar a sequencia de escape que faz isso!")\end{lstlisting}
+	
+	Como podemos ver no Código 2.2, as sequências de escape que estou demonstrando são as duas que considero principais: \verb*|\t| para tabulação e \verb*|\n| para pular uma linha. Repare que o Python não se preocupa se você põe espaços antes ou depois dessas sequências — isso é contigo! Sempre que ele vir um \verb*|\t| ou \verb*|\n|, ele vai executar o comando correspondente.
+	
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Observação}]
+		Você pode escapar outros caracteres, como valores hexadecimais, ou mesmo aspas e a própria barra invertida \verb*|\|.
+		
+		Para saber mais, visite \url{https://www.w3schools.com/python/gloss_python_escape_characters.asp}
+	\end{tcolorbox}
+	
+	\subsection{Parâmetros opcionais}
+	
+	Mas nem só de *escape sequences* viverá o \texttt{print}! Existem também os \textit{parâmetros opcionais} da função \texttt{print}. Parâmetro é o nome que se dá aos valores que são passados a uma função. Neste caso, são chamados de "opcionais" porque, se você não os especificar, não tem problema — eles não são obrigatórios!
+	
+	Vejamos um exemplo:
+	
+	% código aqui
+	\begin{lstlisting}[caption={Parâmetros opcionais}]
+print("Ola mundo", "olha so como eu posso", "especificar separadores", sep=' -- ')
+print("Ola mundo", end='\t hahahah')\end{lstlisting}
+		
+	No Código 2.3, eu mostrei que podemos passar vários argumentos para a função \texttt{print}. De fato, só de printarmos várias strings separadas por vírgula, isso por si só já representa diferentes parâmetros sendo passados de uma vez só — mas a coisa não para por aí! Os parâmetros \texttt{sep} (separador) e \texttt{end} (final) também podem ser usados (até mesmo juntos!).
+	
+	O resultado é o que você vê ao executar: \texttt{sep} é responsável por separar as strings. E o melhor de tudo é que eu posso escolher esse separador como quiser! O mesmo vale para o parâmetro \texttt{end}, que especifica o final da linha. Perceba: eu nem preciso pular uma linha, se eu não quiser!
+	
+	\section{Entrada de dados}
+	
+	Sobre isso, não há muito o que possa ser dito, honestamente: ou você pede que o usuário escreva a entrada de dados sem perguntar nada, ou você pergunta alguma coisa. A dica aqui é que, se você pedir a entrada de dados **sem** exibir um prompt para o usuário, talvez ele nem saiba o que deve digitar ali — ou pior, nem perceba que é para digitar algo!
+	
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Observação}]
+		Aqui estamos trabalhando estritamente com o terminal, mas existem outras formas de entrada de dados. Você pode utilizar bibliotecas como o \texttt{tkinter} ou o \texttt{PySimpleGUI}, que "desenham" interfaces gráficas na tela — mas não cobriremos isso neste livro.
+	\end{tcolorbox}
+	
+	Segue o código para que você possa testar!
+	
+	% código aqui
+	
+	\begin{lstlisting}[caption={Entrada de dados}]
+seu_nome = input("Digite o seu nome: ")
+um_numero = int(input("Digite um numero qualquer: "))
+entrada_sem_prompt = input() # repara como aqui ele vai ficar esperando, mas sem perguntar nada, o que torna tudo muito estranho e "silencioso"
+# pra finalizar, podemos printar tudo
+print(seu_nome, um_numero, entrada_sem_prompt,sep=' |====| ')\end{lstlisting}
 	% =======================LICENÇA=======================
 	\newpage
 	\section*{Licença \faCreativeCommons}
