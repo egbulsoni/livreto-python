@@ -544,12 +544,132 @@ not jogador_vivo # False\end{lstlisting}
 		E sim — como a Álgebra Booleana é um campo da matemática — você pode (e deve!) usar parênteses para controlar a ordem de prioridade!
 	\end{tcolorbox}
 	
+	\section{Tabelas verdade}
+	
+	As tabelas verdade a seguir exemplificam bem o que acontece com cada operador lógico quando aplicado em expressões. Não se preocupe em decorá-las num primeiro momento — tente apenas entender a lógica por trás. Com o tempo, isso se tornará natural para você, leitor.
+	
+	\subsection*{Tabela verdade do operador \texttt{and}}
+	
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{A} & \textbf{B} & \textbf{A and B} \\
+			\hline
+			False & False & False \\
+			False & True  & False \\
+			True  & False & False \\
+			True  & True  & True  \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	
+	\subsection*{Tabela verdade do operador \texttt{or}}
+	
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{A} & \textbf{B} & \textbf{A or B} \\
+			\hline
+			False & False & False \\
+			False & True  & True  \\
+			True  & False & True  \\
+			True  & True  & True  \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
+	
+	\subsection*{Tabela verdade do operador \texttt{not}}
+	
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{A} & \textbf{not A} \\
+			\hline
+			False & True  \\
+			True  & False \\
+			\hline
+		\end{tabular}
+	\end{center}
+	
 	\chapter{Controle de Fluxo}
 	
 	% if, elif, else
 	% Blocos e indentação (fundamental enfatizar isso bem)
 	% Boas práticas de legibilidade
 	
+	É agora que a coisa fica mais interessante! Com as estruturas condicionais, nós podemos “legislar” sobre o código — ou seja, podemos tomar decisões baseadas em condições. Por exemplo, você pode implementar um controle de acesso e decidir quem pode ou não entrar no seu sistema.
+	
+	Um exemplo que sempre tenho em mente é o da Steam (uma loja virtual de jogos eletrônicos). Nesse site, há vários jogos restritos por faixa etária. Então, se você acessa um jogo proibido para menores de 14 anos, o site pede sua data de nascimento e — provavelmente — faz as contas internamente, usando o horário do sistema, para verificar se você pode visualizar o conteúdo daquele jogo (imagens, vídeos, avaliações etc.).
+	
+	Certamente existem exemplos melhores, mas perceba: a condicional está ali! Não é difícil imaginar que, em algum lugar na lógica do site (ou do aplicativo), existe uma função \texttt{calcular\_idade()} que faz as contas com base na sua data de nascimento e a data atual — e outra função chamada \texttt{permitir\_acesso()} que retorna \verb*|True| se o usuário tiver idade suficiente, ou \verb*|False| caso contrário.
+
+
+	\section{Condicionais}
+	Sem mais delongas, vamos ao código:
+	
+	\begin{lstlisting}[caption={Estrutura condicional simples}]
+permitir_acesso = True
+if permitir_acesso == True:
+	print("Pode entrar!")\end{lstlisting}
+	
+	Esse código poderia ser levemente abreviado, mas optamos por mantê-lo em sua forma mais simples para fins didáticos.
+	
+	De todo modo — o \texttt{if}, que em português significa "se", é exatamente isso: se o que estiver dentro da condição for \verb*|True| (verdadeiro), ele executa todas as instruções que estiverem "dentro do if" (ou seja, que estiverem indentadas — também chamado de aninhamento).
+	
+	E se a expressão dentro da condicional for \verb*|False|? Ora, então ele não executa nada! Em outras palavras: da forma como está descrito no Código 4.1, se a variável \verb*|permitir_acesso| (na linha 1) fosse \verb*|False|, tudo que está dentro do \texttt{if} seria sumariamente ignorado.
+	
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Observação}]
+		A indentação é uma parte essencial da sintaxe em Python — especialmente ao trabalhar com condicionais.
+		
+		Sempre que você abrir um bloco de código com \verb|if|, \verb|else|, \verb|elif|, ou outras estruturas, é obrigatório usar dois pontos (\texttt{:}) no final da linha, e em seguida indentar o bloco que será executado.
+		
+		Se você tiver um \verb|if| dentro de outro \verb|if| (ou seja, um \textit{if aninhado}), será necessário indentar duas vezes — uma para cada nível.
+		
+		Isso vale não só para condicionais, mas também para outros blocos de código, como os laços de repetição (que veremos em breve)!
+		
+		\vspace{0.5em}
+		Exemplo rápido:
+	\begin{lstlisting}[caption={Condicionais aninhadas}]
+if condicao1:
+	print("nivel 1")
+	if condicao2:
+		print("nivel 2")
+		\end{lstlisting}
+	\end{tcolorbox}
+
+	\section{Complementos}
+	
+	Existem dois complementos importantes quando se trata de condicionais. Apesar de não serem obrigatórios, às vezes eles se fazem necessários. São eles: \verb*|elif| e \verb*|else|.
+	
+	O \verb*|elif| (uma contração de \texttt{else if}) significa "senão se", e é usado para testar uma nova condição caso a anterior não tenha sido satisfeita. Já o \verb*|else| representa um "caso contrário", ou simplesmente "senão".
+	
+	Exemplificando:
+	
+	\begin{lstlisting}[caption={Condicionais aninhadas}]
+idade = 15
+if idade < 0:
+	print("Voce ainda nem existe!!")
+elif idade < 12:
+	print("Voce eh uma crianca")
+elif idade < 18:
+	print("Voce eh um adolescente")
+elif idade < 60:
+	print("Voce eh um adulto")
+else:
+	print("Voce eh um idoso")\end{lstlisting}
+	
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Observação}]
+		Os blocos \verb*|elif| são opcionais, e você pode ter quantos quiser. Já o \verb*|else|, quando usado, deve sempre vir por último.
+		
+		Vale lembrar: você pode escrever um \verb*|if| sozinho, ou com \texttt{if + elif}, ou \texttt{if + else} — mas nunca pode usar \verb*|else| ou \verb*|elif| sem um \verb*|if| antes. \newline
+		
+		Importante: em uma cadeia de \verb*|if/elif/else|, assim que uma das condições for satisfeita e seu bloco for executado, todas as demais instruções da cadeia são ignoradas. Ou seja, se um \verb*|elif| for executado, o Python não continuará testando os outros \verb*|elif|s nem o \verb*|else|!
+	\end{tcolorbox}
+	
+	
+
 	% =======================LICENÇA=======================
 	\newpage
 	\section*{Licença \faCreativeCommons}
