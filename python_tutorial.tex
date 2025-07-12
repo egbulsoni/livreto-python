@@ -461,10 +461,95 @@ print("Ola mundo", end='\t hahahah')\end{lstlisting}
 	
 	\begin{lstlisting}[caption={Entrada de dados}]
 seu_nome = input("Digite o seu nome: ")
-um_numero = int(input("Digite um numero qualquer: "))
+um_numero_inteiro = int(input("Digite um numero inteiro qualquer: "))
 entrada_sem_prompt = input() # repara como aqui ele vai ficar esperando, mas sem perguntar nada, o que torna tudo muito estranho e "silencioso"
 # pra finalizar, podemos printar tudo
-print(seu_nome, um_numero, entrada_sem_prompt,sep=' |====| ')\end{lstlisting}
+print(seu_nome, um_numero_inteiro, entrada_sem_prompt,sep=' |====| ')\end{lstlisting}
+
+	De fato, como eu não vou realizar nenhuma operação (conta) com o número, eu nem precisaria converter ele para inteiro, lembra disso quando discutimos a função print? teste a segunda linha sem a função \texttt{int()} ficaria assim
+	
+	\begin{lstlisting}[caption={Entrada de dados sem conversão de tipos}]
+um_numero_inteiro = input("Digite um numero inteiro qualquer: ")
+print("olha o seu numero inteiro sem conversao de tipos!", um_numero_inteiro)\end{lstlisting}
+
+	% Capitulo 3
+	
+	\chapter{Operadores e Expressões}
+	
+	Este capítulo vai tratar de um tipo de dado bem específico: o tipo \textit{Booleano}.
+	
+	E o que é, afinal, o tipo \texttt{bool}? Bem, já comentamos anteriormente que um booleano é um tipo de dado que trabalha apenas com dois valores: \verb*|True| ou \verb*|False|.
+	
+	Note que uma variável booleana é semelhante a um interruptor: ela só pode assumir dois estados, que representam coisas como ligado/desligado, sim/não, "vivo" ou "morto", "sinal verde" ou "sinal vermelho" — enfim, o tipo booleano trabalha com esse "dualismo eletrônico", um conceito essencial para a programação de computadores modernos!
+	
+	\section{Operadores de comparação}
+	No próximo capítulo, você, leitor, aprenderá sobre controle de fluxo e estruturas condicionais. Mas, por ora, vamos focar nossos esforços em entender os operadores relacionais — e também os operadores lógicos.
+	
+	São operadores de comparação: \texttt{==, !=, >, <, >=, <=}.
+	
+	Respectivamente, eles significam: igualdade (sim, escreve-se com dois sinais de igual), diferente, maior que, menor que, maior ou igual, menor ou igual.
+	
+	A notação utilizada no Python é chamada de \textit{infixa}, o que quer dizer que o operador vem entre os dois valores — como nos exemplos a seguir.
+	
+	\begin{lstlisting}[caption={Operadores de comparação}]
+3 == 3 # True (sim, 3 eh igual a 3)
+3 == 20 # False (nao, 3 nao eh igual a 20)
+10 != 10 # False (nao, 10 nao eh diferente de 10)
+10 != 55 # True (sim, 10 eh diferente de 55)
+5 > 8 # False (nao, 5 nao eh maior que 8)
+30 > 15 # True (sim, 30 eh maior que 15)
+20 < 15 # False (nao, 20 nao eh menor que 15)
+32 < 40 # True (sim, 32 eh menor que 40)
+30 <= 30 # True (sim, 30 eh "MENOR OU IGUAL" a 30)
+30 <= 40 # True (sim, 30 eh "MENOR OU IGUAL" a 40)
+30 <= 15 # False (nao, 30 nao eh "MENOR OU IGUAL" a 15)
+30 >= 30 # True (sim, 30 eh "MAIOR OU IGUAL" a 30)
+30 >= 40 # False (nao, 30 eh "MAIOR OU IGUAL" a 40)
+30 >= 15 # True (sim, 30 eh "MAIOR OU IGUAL" a 15)\end{lstlisting} 
+	
+	Sinta-se livre para executar todo o código acima — pode copiar e colar diretamente no interpretador do terminal (o Python 3 que já instalamos, lembra?). Você vai ver que funciona direitinho: ele compara os valores e retorna \verb|True| ou \verb|False| com base na expressão.
+	
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Dica}]
+		Brinque com os valores! Teste no terminal: \texttt{9 <= 15}, pressione *Enter* e veja o que ele retorna.
+		
+		E se você escrever \texttt{320 >= 400}? O que será que acontece? Teste valores diferentes e internalize esse conhecimento!
+	\end{tcolorbox}
+	
+	\section{Compondo expressões}
+	
+	E se eu te dissesse que você consegue "encadear" comparações? Pois é, isso é completamente possível com os operadores que vamos aprender agora: \verb*|and|, \verb*|or| e \verb*|not|. Na verdade, eles até possuem uma ordem de precedência — e talvez a forma mais simples de memorizar isso seja com um mnemônico que eu mesmo criei: \verb*|a-NOT-AND-OR|.
+	
+	O operador \verb*|and| retorna \verb*|True| apenas se **ambas** as condições forem verdadeiras.
+	
+	O operador \verb*|or| retorna \verb*|True| se **qualquer uma** das duas condições for verdadeira.
+	
+	O operador \verb*|not| é unário! Ele inverte o valor da expressão: retorna \verb*|True| se a expressão for \verb*|False|, e vice-versa.
+	
+	\begin{lstlisting}[caption={Operadores lógicos}]
+30 > 15 and 20 > 10 # True, pois ambas sao verdadeiras
+30 > 15 and 20 < 10 # False, porque uma das operacoes deu False (o operador and precisa que as duas sejam True para retornar True)
+
+10 < 20 or 5 != 5 # True, pois a primeira expressao e verdadeira, e o or so precisa que uma seja verdadeira!
+
+not False # True
+not True # False
+
+# O melhor e que podemos utilizar essas expressoes em variaveis, como por exemplo
+jogador_vivo = True
+not jogador_vivo # False\end{lstlisting}
+	
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Dica}]
+		Você pode compor quantas operações quiser! Experimente algo como: \texttt{30 > 15 and 10 <= 26 or (not True and False)} e veja o que acontece. \newline
+		
+		E sim — como a Álgebra Booleana é um campo da matemática — você pode (e deve!) usar parênteses para controlar a ordem de prioridade!
+	\end{tcolorbox}
+	
+	\chapter{Controle de Fluxo}
+	
+	% if, elif, else
+	% Blocos e indentação (fundamental enfatizar isso bem)
+	% Boas práticas de legibilidade
+	
 	% =======================LICENÇA=======================
 	\newpage
 	\section*{Licença \faCreativeCommons}
