@@ -668,8 +668,145 @@ else:
 		Importante: em uma cadeia de \verb*|if/elif/else|, assim que uma das condições for satisfeita e seu bloco for executado, todas as demais instruções da cadeia são ignoradas. Ou seja, se um \verb*|elif| for executado, o Python não continuará testando os outros \verb*|elif|s nem o \verb*|else|!
 	\end{tcolorbox}
 	
+	\chapter{Estruturas de repetição}
 	
+	\section{Laço \texttt{while}}
+	
+	Programação e automação são áreas muito próximas: o programador, afinal, é um ser preguiçoso — e isso não é ruim! O objetivo é sempre poupar tempo e otimizar o trabalho. Graças à tecnologia, usamos retroescavadeiras em vez de pás ou (Deus me livre!) colheres para mover terra.
+	
+	Veja o seguinte trecho de código:
+	
+	\begin{lstlisting}[caption={Printando repetidas vezes}]
+print("Print de numero 1")
+print("Print de numero 2")
+print("Print de numero 3")
+print("Print de numero 4")
+print("Print de numero 5")\end{lstlisting}
+	
+	E é aqui que a mágica acontece!  
+	Apesar de funcionar, esse código pode ser reescrito de forma mais automática:
+	
+	\begin{lstlisting}[caption={Printando com while}]
+i = 1
+while i <= 5:
+	print(f"Print de numero {i}")
+	i = i + 1\end{lstlisting}
+	
+	No Código 5.2, declaramos uma variável chamada \verb*|i| e atribuímos a ela o valor 1. Em seguida, temos uma estrutura \verb*|while|, que funciona de forma parecida com o \verb*|if|, mas com repetição.
+	
+	A palavra \texttt{while} significa "enquanto", ou seja: enquanto a condição for verdadeira, o bloco indentado será executado.  
+	Nesse caso, o Python verifica se \texttt{i <= 5} — se for verdade, ele executa o bloco: imprime a mensagem com o número atual e incrementa \verb*|i|.
+	
+	Depois disso, ele volta ao início do \verb*|while| e testa novamente a condição. Isso continua até que \verb*|i| seja maior que 5, momento em que a condição se torna falsa e o laço termina.
+	
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Observação}]
+		Em algumas linguagens (ou literaturas), existe o laço \texttt{do-while}. A diferença é que o \texttt{do-while} sempre executa pelo menos uma vez, mesmo que a condição seja falsa. Já o \texttt{while} tradicional (como no Python) pode nem ser executado, dependendo da condição.
+		
+		O Python não possui um laço \texttt{do-while} — trabalhamos apenas com \texttt{while} e \texttt{for}.
+	\end{tcolorbox}
+	
+	\section{Laço \texttt{for}}
+	
+	O laço \texttt{for} é parecido com o \texttt{while}. Vamos retomar o exemplo da seção anterior para explicá-lo; posteriormente, discutiremos suas diferenças.
+	
+	\begin{lstlisting}[caption={Printando com o laço for}]
+for i in range(1,6):
+	print(f"Print de numero {i}")\end{lstlisting}
+	
+	Assim como o \texttt{while}, o \texttt{for} também executa um bloco de código várias vezes. Dizemos que ele "itera" — ou seja, percorre um intervalo numérico ou uma lista. A diferença aqui é que usamos a função \texttt{range}, que é uma função embutida no Python, assim como o \texttt{print}.
+	
+	O que estamos dizendo ao Python é: “para cada número inteiro (chamado de \texttt{i}) dentro do intervalo que começa em 1 e vai até 6, execute o bloco de código”. Importante lembrar que o valor final do \texttt{range} (no caso, o 6) **não é incluído** — os intervalos do Python são exclusivos à direita por padrão.
+	
+	Lembra da \textit{interpolação}? Pois é, ela está sendo utilizada novamente dentro do \texttt{print}.  
+	Portanto, apesar de usarem sintaxes diferentes, os laços \texttt{while} e \texttt{for} produzem o mesmo resultado nos exemplos acima.
+	
+	\begin{tcolorbox}[colback=gray!10, colframe=black, title={\large\bfseries Observação}]
+		A função \texttt{range} pode receber até 3 parâmetros. Quando recebe apenas 1, esse valor é interpretado como o "fim" do intervalo — por exemplo, \texttt{range(5)} gera os números de 0 até 4. Isso acontece porque, por padrão, o valor inicial (início do intervalo) é 0. Veremos mais sobre isso adiante.\newline
+		
+		Se você especificar 2 parâmetros, como no Código 5.3, o primeiro será o valor inicial (\texttt{start}) e o segundo será o valor final (\texttt{stop}) — lembrando que o valor final **não é incluído** no intervalo.\newline
+		
+		Por fim, é possível adicionar um terceiro parâmetro opcional, chamado \texttt{step}, que define o "passo" — ou seja, de quanto em quanto a variável será incrementada (como 1 em 1, 2 em 2, etc).
+	\end{tcolorbox}
+	
+	\vspace{2em}
+	\begin{lstlisting}[caption={Outro exemplo de print com for}]
+for i in range(1,30, 4):
+	print(f"Print de numero {i}")\end{lstlisting}
+	
+	\chapter{Trabalhando com Strings}
+	
+	Existem diversos métodos que podemos usar para manipular textos — mas o que é, afinal, um método?  
+	Métodos são funções associadas a classes. Lembra que vimos que existe a classe \texttt{str} (de "string")? Pois bem, agora vamos aprender como chamar os métodos que atuam sobre essa classe!
 
+	
+\begin{lstlisting}[caption={Métodos com string}]
+print("ISSO AQUI VAI FICAR TUDO MINUSCULO!".lower())
+print("e isso aqui, tudo maiusculo!!".upper())
+print("    este metodo tira todos os espacos antes e depois da frase/texto !!!        ".strip())
+print("este outro metodo converte o texto todo para uma LISTA".split()) # mais sobre listas no proximo capitulo!
+print("todos os caracteres 'o' serao substituidos aqui por e".replace('o', 'e'))
+
+minha_str = "uma pequena sequencia de texto para demonstrar slices"
+print(minha_str[4:11]) # imprime a palavra "pequena", seguindo o intervalo do quinto caractere da string minha_str (comeca no 0) ate o caractere 10 (o 11 nao eh incluido)
+minha_str[4] = "u" # da erro, strings no python sao imutaveis!
+\end{lstlisting}
+
+Strings também são iteráveis!
+
+\begin{lstlisting}[caption={Iterando sobre strings}]
+for letra in "Python":
+print(letra)
+\end{lstlisting}
+
+Relembrar é viver: podemos concatenar (e até repetir) strings, como mostrado abaixo:
+
+\begin{lstlisting}[caption={Concatenação e repetição de strings}]
+print("Ola" + " " + "mundo!")   # Concatenacao
+print("ha" * 3)                # Repeticao
+\end{lstlisting}
+
+	\chapter{Listas e Coleções}
+	% Listas: criação, acesso, alteração, métodos (append, pop, etc.)
+	%Tuplas (diferença com listas)
+	%Conjuntos (sets)
+	%Dicionários: dict, uso básico, iteração
+	
+	\chapter{Funções}
+	%Criando funções com def
+	%Parâmetros e retorno
+	%*args, **kwargs (só mencionar superficialmente)
+	%Funções embutidas (len, sum, max, etc.)
+	
+	\chapter{Módulos e Bibliotecas}
+	%O que são módulos
+	%Como importar (import, from ... import)
+	%Usar math, random, talvez time e os com exemplos simples
+	
+	\chapter{Tratamento de Erros}
+	%try, except
+	%finally, else (com parcimônia)
+	%Mostrar erros comuns: ValueError, ZeroDivisionError
+	
+	\chapter{Arquivos e Entrada/Saída em Disco}
+	%Abrir e ler arquivos com open(), read(), write()
+	%Diferença entre modos: r, w, a, r+
+	%Context Manager com with
+	
+	\chapter{Introdução à Orientação a Objetos (O.O)}
+	%Conceito de classe e objeto com analogias do cotidiano
+	%__init__, self, atributos
+	%Métodos de instância
+	%Só o básico mesmo – mostrar como classes ajudam a organizar
+	
+	% ==================THE END====================
+	
+	%Extras (pode virar apêndice ou capítulo bônus depois):
+	%Projeto simples: Jogo da adivinhação ou calculadora
+	%Dicas de IDEs online e notebooks Jupyter
+	%Sites para praticar: replit.com, PythonTutor, Hackerrank, etc.
+	%Como procurar dúvidas no Google/Stack Overflow
+	%Boas práticas e legibilidade de código
+	
 	% =======================LICENÇA=======================
 	\newpage
 	\section*{Licença \faCreativeCommons}
