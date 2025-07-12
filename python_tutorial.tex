@@ -739,7 +739,7 @@ for i in range(1,30, 4):
 	Métodos são funções associadas a classes. Lembra que vimos que existe a classe \texttt{str} (de "string")? Pois bem, agora vamos aprender como chamar os métodos que atuam sobre essa classe!
 
 	
-\begin{lstlisting}[caption={Métodos com string}]
+	\begin{lstlisting}[caption={Métodos com string}]
 print("ISSO AQUI VAI FICAR TUDO MINUSCULO!".lower())
 print("e isso aqui, tudo maiusculo!!".upper())
 print("    este metodo tira todos os espacos antes e depois da frase/texto !!!        ".strip())
@@ -748,24 +748,32 @@ print("todos os caracteres 'o' serao substituidos aqui por e".replace('o', 'e'))
 
 minha_str = "uma pequena sequencia de texto para demonstrar slices"
 print(minha_str[4:11]) # imprime a palavra "pequena", seguindo o intervalo do quinto caractere da string minha_str (comeca no 0) ate o caractere 10 (o 11 nao eh incluido)
-minha_str[4] = "u" # da erro, strings no python sao imutaveis!
-\end{lstlisting}
+minha_str[4] = "u" # da erro, strings no python sao imutaveis!\end{lstlisting}
 
-Strings também são iteráveis!
+	Strings também são iteráveis!
 
-\begin{lstlisting}[caption={Iterando sobre strings}]
+	\begin{lstlisting}[caption={Iterando sobre strings}]
 for letra in "Python":
 print(letra)
 \end{lstlisting}
 
-Relembrar é viver: podemos concatenar (e até repetir) strings, como mostrado abaixo:
+	Relembrar é viver: podemos concatenar (e até repetir) strings, como mostrado abaixo:
 
-\begin{lstlisting}[caption={Concatenação e repetição de strings}]
+	\begin{lstlisting}[caption={Concatenação e repetição de strings}]
 print("Ola" + " " + "mundo!")   # Concatenacao
 print("ha" * 3)                # Repeticao
 \end{lstlisting}
 
 	\chapter{Listas e Coleções}
+	
+	\begin{tcolorbox}[colback=yellow!10, colframe=black, title={\large\bfseries Nota ao leitor}]
+		Este material está em desenvolvimento. Por enquanto, os capítulos do 7 em diante ainda estão em construção — em breve serão adicionados novos conteúdos, exemplos e exercícios.
+		
+		Enquanto isso, sinta-se à vontade para explorar os capítulos já disponíveis, que cobrem os fundamentos da linguagem Python de forma gradual e prática.
+		
+		Obrigado por acompanhar o projeto!
+	\end{tcolorbox}
+	
 	% Listas: criação, acesso, alteração, métodos (append, pop, etc.)
 	%Tuplas (diferença com listas)
 	%Conjuntos (sets)
