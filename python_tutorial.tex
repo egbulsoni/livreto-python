@@ -20,6 +20,11 @@
 \usepackage{fontawesome5} % para ícone Creative Commons
 \usepackage{tcolorbox}
 
+% TIKZ
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
+\usepackage{float}
+
 \renewcommand{\lstlistingname}{Código}
 
 % Geometria e espaçamento
@@ -93,7 +98,7 @@
 	
 	Você já ouviu aquela piada do programador? A esposa diz: "Amor, quero que você vá ao mercado e traga 2 ovos. Se tiver leite, traga 6." O homem vai até o mercado, encontra leite, mas volta com 6 ovos e nenhum leite. Pode parecer engraçado, mas eu te pergunto: a instrução estava clara?
 	
-	\subsection{Uma breve história da ciência da computação: como chegamos até aqui}
+	\section{Uma breve história da ciência da computação: como chegamos até aqui}
 	
 	Embora o autor deste livro não seja exatamente um entusiasta de histórias antigas, é impossível ignorar como a ciência da computação percorreu um longo caminho para chegar ao que temos hoje.
 	
@@ -774,6 +779,120 @@ print("ha" * 3)                # Repeticao
 
 	\chapter{Listas e Coleções}
 	
+	
+	% Listas: criação, acesso, alteração, métodos (append, pop, etc.)
+	%Tuplas (diferença com listas)
+	%Conjuntos (sets)
+	%Dicionários: dict, uso básico, iteração
+	\section{Estruturas de dados do Python}
+	
+	Você se lembra do que falamos sobre tipos?  
+	Sim, é verdade que — em linhas gerais — o Python possui apenas alguns tipos primitivos. No entanto, existem outros tipos que permitem **combinar** ou **agrupar** valores de diferentes tipos em uma única variável.
+	
+	Esses tipos são chamados de **estruturas de dados**, e os principais são: listas, tuplas, conjuntos e dicionários.
+	
+\subsection{Listas}
+
+As listas em Python funcionam como listas de supermercado, listas de afazeres ou qualquer outro tipo de lista que você encontra por aí.  
+Isso quer dizer que você pode **inserir e remover itens**, **ordenar**, **adicionar no meio da lista**, **percorrer com um laço**, **comparar**, entre outras operações.
+
+Principais características das listas:
+
+\begin{itemize}
+	\item Aceitam elementos de qualquer tipo (números, textos, até outras listas!)
+	\item São \textbf{mutáveis}: você pode alterar, remover ou reorganizar os elementos
+	\item São \textbf{dinâmicas}: crescem ou encolhem automaticamente conforme você as manipula
+	\item Permitem acesso por \textbf{índices negativos} (como se fossem circulares) — veremos isso em breve
+	\item São \textbf{iteráveis}: você pode percorrer seus elementos com um laço \texttt{for}
+\end{itemize}
+
+	\begin{lstlisting}[caption={Métodos de lista}]
+meus_personagens = ["Goku", "Vegeta", "Kuririn", "Freeza"]
+
+# posso iterar pela lista
+for personagem in meus_personagens:
+print(personagem)
+
+# posso adicionar mais um personagem ao fim da lista
+meus_personagens.append("Piccolo")
+
+# posso adicionar numeros, booleanas ou quaisquer variaveis de tipos diferentes
+# nota: isso pode nao ser desejavel - no entanto, eh o que acontece.
+meus_personagens.append(52)
+meus_personagens.append(True)
+
+for personagem in meus_personagens:
+print(personagem)
+
+# mas e se eu quiser remover os que nao sao personagens do fim da lista?
+meus_personagens.pop()
+meus_personagens.pop()
+# pronto, feito.
+
+# e para adicionar elementos ao meio da lista?
+meus_personagens.insert(2, "Android 17")
+
+# lembre-se: listas sao indexadas comecando do 0.
+
+# o metodo enumerate serve para obter o indice junto com o valor, veja:
+for i, personagem in enumerate(meus_personagens):
+print("o personagem", i, "se chama", personagem)
+
+# posso acessar um personagem qualquer da lista usando colchetes
+# lembre-se: o indice comeca em 0, entao isso acessa o primeiro personagem
+print(meus_personagens[0])
+
+# fim do exemplo :)\end{lstlisting}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance=1.8cm, every node/.style={draw, minimum width=2cm, minimum height=1cm}, >=stealth]
+		
+		% Elementos da lista
+		\node (el0) {Goku};
+		\node[right of=el0] (el1) {Vegeta};
+		\node[right of=el1] (el2) {Kuririn};
+		\node[right of=el2] (el3) {Freeza};
+		
+		% Índices positivos abaixo
+		\node[below=0.2cm of el0] {\scriptsize \texttt{[0]}};
+		\node[below=0.2cm of el1] {\scriptsize \texttt{[1]}};
+		\node[below=0.2cm of el2] {\scriptsize \texttt{[2]}};
+		\node[below=0.2cm of el3] {\scriptsize \texttt{[3]}};
+		
+		% Índices negativos acima
+		\node[above=0.2cm of el0] {\scriptsize \texttt{[-4]}};
+		\node[above=0.2cm of el1] {\scriptsize \texttt{[-3]}};
+		\node[above=0.2cm of el2] {\scriptsize \texttt{[-2]}};
+		\node[above=0.2cm of el3] {\scriptsize \texttt{[-1]}};
+		
+		% Setas de loop (para sugerir circularidade)
+		\draw[->, thick] (el3.east) to[out=0, in=270] ++(0.5, -0.7) to[out=90, in=0] (el0.east);
+		
+	\end{tikzpicture}
+	\caption{Representação de uma lista com indexação positiva e negativa.}
+\end{figure}
+
+	A Figura 7.1 representa como funciona a indexação em uma lista, inclusive com índices negativos — o que muitas vezes é chamado informalmente de "lista circular".
+	
+	Repare que, em uma mesma lista, cada elemento pode ser acessado por um índice positivo e também por um índice negativo. Por exemplo, o elemento "Goku" possui o índice \texttt{0}, mas também pode ser acessado pelo índice \texttt{-4}.
+	
+	Como a lista tem apenas 4 elementos, o índice \texttt{-5} não existe.  
+	Se tentássemos acessá-lo, o Python retornaria um erro do tipo \texttt{IndexError: list index out of range}, ou seja, o índice está fora dos limites válidos da lista.
+	
+	\subsection{Tuplas}
+	
+	
+	% ====================================================
+	% AINDA NÃO ACABOU TUDO POR AQUI
+	% AINDA NÃO ACABOU TUDO POR AQUI
+	% AINDA NÃO ACABOU TUDO POR AQUI
+	% AINDA NÃO ACABOU TUDO POR AQUI
+	% AINDA NÃO ACABOU TUDO POR AQUI
+	% ===================================================
+
+	
+	\chapter{Funções}
 	\begin{tcolorbox}[colback=yellow!10, colframe=black, title={\large\bfseries Nota ao leitor}]
 		Este material está em desenvolvimento. Por enquanto, os capítulos do 7 em diante ainda estão em construção — em breve serão adicionados novos conteúdos, exemplos e exercícios.
 		
@@ -781,13 +900,6 @@ print("ha" * 3)                # Repeticao
 		
 		Obrigado por acompanhar o projeto!
 	\end{tcolorbox}
-	
-	% Listas: criação, acesso, alteração, métodos (append, pop, etc.)
-	%Tuplas (diferença com listas)
-	%Conjuntos (sets)
-	%Dicionários: dict, uso básico, iteração
-	
-	\chapter{Funções}
 	%Criando funções com def
 	%Parâmetros e retorno
 	%*args, **kwargs (só mencionar superficialmente)
